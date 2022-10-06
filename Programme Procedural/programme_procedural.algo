@@ -1,0 +1,35 @@
+PROCEDURE vecteurs_orthogonaux(n: FLOAT)
+VAR
+
+BEGIN
+    IF (n==0) THEN
+        write("les vecteurs sont bien orthogonaux");
+    ELSE
+        write("les vecteurs ne sont pas du tout orthogonaux");
+    END_IF
+END
+
+
+FUNCTION dot_product(v1 : ARRAY_OF INTEGER[3], v2 : ARRAY_OF INTEGER[3]) : FLOAT
+VAR
+    ps:FLOAT:=0.0;
+    e:INTEGER:=0;
+BEGIN
+    FOR e FROM 0 TO 2 STEP 1  DO
+        ps:= ps + v1[e] * v2[e];
+    END_FOR
+    RETURN ps;
+END
+
+
+ALGORITHM mes_vecteurs_orthogonaux;
+VAR
+    vecteur1 : ARRAY_OF INTEGER[3];
+    vecteur2: ARRAY_OF INTEGER[3];
+    result:FLOAT;
+BEGIN
+    vecteur1:={2, 1, 5};
+    vecteur2:={-3, 0, 2};
+    result:=dot_product(vecteur1, vecteur2);
+    orthogonal_vector(result);
+END
